@@ -4,8 +4,10 @@ We built a game with non-euclidean objects like the klein bottle or the boy's su
 
 * [Project Description](#project-description)
 * [Project Goals](#project-goals)
+* [Project Ideas](#project-ideas)
 * [Meeting notes 18.12.2020](#meeting-notes-18.12.2020)
 * [Technologies](#technologies)
+* [TODO](#todo)
 * [Project Status](#project-status)
 * [Inspiration](#inspiration)
 * [Resources](#resources)
@@ -26,6 +28,9 @@ Boysche Fläche             |  Kleinsche Flasche
 * Fortführung: Welt verändert sich und faltet sich während des Spiels zu einer anderen Form
 * Fortführung II: Auf der Welt gibt es Räume, Tunnel etc. die sich wie in dem Video verhalten
 
+## Project Ideas
+* Add a gun
+
 ## Meeting notes 18.12.2020
 * Kleinsche Flasche und Boysche Fläche besser geeignet, da sie  keinen Rand haben
 * was passiert mit dem Spieler, wenn er in der Kleinschen Flasche an den Schnittpunkt kommt?
@@ -44,15 +49,21 @@ Boysche Fläche             |  Kleinsche Flasche
 ## Technologies 
 * Unity Version 2019.4.4f1
 
+## TODO
+* Alles.
+
 ## Project Status
 ### 16.02.2021
 Grundmechanik der laufens auf dem Mesh eines Donuts ist implementiert. Allerdings gibt es noch ein paar Fehler, da man teilweise unter das Mesh laufen kann. Als nächster Schritt wird versucht eine bessere Steuerung zu implementieren.
 
-![First test of the "gravity" code](git_res/Unity_Test_1.gif)
+![First test of the "gravity" code](git_res/Raycast_Test_1.gif)
 - - - - -
 
 ### 17.02.2021
-GitHub README geupdated
+- GitHub README geupdated
+- Steuerungsmechanik für Kamera und Spieler implementiert. Er kann sich in alle Richtungen umschauen und seine Bewegungsrichtung ist abhängig von der Richtung in die die Kamera schaut. Allerdings gibt es noch ein paar unschöne Fehler...
+
+![First implementation of camera and player movment](git_res/Movment_Test_1.gif)
 - - - - - 
 
 ## Inspiration
@@ -83,6 +94,7 @@ GitHub README geupdated
 * [Dan-Piker](https://github.com/Dan-Piker)
 * [Palace of the Counts of Barcelos](https://sketchfab.com/3d-models/palace-of-the-counts-of-barcelos-655707837d0a4c4d814eb203f2a95bbc)
 * [Psuedo-Non-euclidean geometry in Unity [A response video of sorts]](https://www.youtube.com/watch?v=ukdIAcfGKF4)
+* [[Unity] First Person Controller [E01: Basic Controller]](https://www.youtube.com/watch?v=PmIPqGqp8UY)
 
 ## Contributors
 

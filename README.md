@@ -4,6 +4,7 @@ We built a game with non-euclidean objects like the klein bottle or the boy's su
 
 * [Project Description](#project-description)
 * [Project Goals](#project-goals)
+* [Meeting notes 18.12.2020](#meeting-notes-18.12.2020)
 * [Technologies](#technologies)
 * [Project Status](#project-status)
 * [Inspiration](#inspiration)
@@ -20,9 +21,28 @@ Boysche Fläche             |  Kleinsche Flasche
 ![](git_res/Boy_Surface-animation-small.gif)  |  ![](git_res/Klein_bottle.svg)
 
 ## Project Goals
+* Eine nichteuklidische Fläche bauen auf der man als Spielfigur herumlaufen kann und Wachen ausweichen muss. Fläche besteht aus kleinsche Flasche, Boysche Fläche, Möbiusband
+* Zwischenstufe: Wie in Mario Galaxy
+* Fortführung: Welt verändert sich und faltet sich während des Spiels zu einer anderen Form
+* Fortführung II: Auf der Welt gibt es Räume, Tunnel etc. die sich wie in dem Video verhalten
+
+## Meeting notes 18.12.2020
+* Kleinsche Flasche und Boysche Fläche besser geeignet, da sie  keinen Rand haben
+* was passiert mit dem Spieler, wenn er in der Kleinschen Flasche an den Schnittpunkt kommt?
+* Sonnensystem Idee: Spieler weiß nicht auf welcher Fläche er sich befindet und muss das rausfinden
+* Jede Ausbaustufe eigenes Anfängerpraktikum
+* Thorus statt Möbiusband
+* Meshlab Programm (.ply, .obj)
+* Binary spaced partition für Portale
+* Kleinsche Flasche durch Portal gehen und dann einfach links und rechts vertauschen
+* Mesh suchen für eine der Flächen
+* Pymarid of Ra
+* Irgendwo eine Markierung setzten für außern oder innen für Weltveränderung
+* Meshgenerator
+* Ziel ist Umgang mit Werkzeugen und Spiel zu haben
 
 ## Technologies 
-Unity Version 2019.4.4f1
+* Unity Version 2019.4.4f1
 
 ## Project Status
 ### 16.02.2021

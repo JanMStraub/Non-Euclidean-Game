@@ -48,10 +48,11 @@ Boysche Fläche             |  Kleinsche Flasche
 ### 16.02.2021
 Grundmechanik der laufens auf dem Mesh eines Donuts ist implementiert. Allerdings gibt es noch ein paar Fehler, da man teilweise unter das Mesh laufen kann. Als nächster Schritt wird versucht eine bessere Steuerung zu implementieren.
 ![First test of the "gravity" code](git_res/Unity_Test_1.gif)
+- - - - -
 
 ### 17.02.2021
 GitHub README geupdated
-- - - - - -
+- - - - - 
 
 ## Inspiration
 

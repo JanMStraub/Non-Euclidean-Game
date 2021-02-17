@@ -47,7 +47,7 @@ Boysche Fläche             |  Kleinsche Flasche
 ## Project Status
 ### 16.02.2021
 Grundmechanik der laufens auf dem Mesh eines Donuts ist implementiert.
-![git_res/Unity_Test_1.mkv]
+![git_res/Unity_Test_1.gif]
 - - - - - -
 
 ## Inspiration

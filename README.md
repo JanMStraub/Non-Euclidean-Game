@@ -95,6 +95,7 @@ Grundmechanik der laufens auf dem Mesh eines Donuts ist implementiert. Allerding
 * [Palace of the Counts of Barcelos](https://sketchfab.com/3d-models/palace-of-the-counts-of-barcelos-655707837d0a4c4d814eb203f2a95bbc)
 * [Psuedo-Non-euclidean geometry in Unity [A response video of sorts]](https://www.youtube.com/watch?v=ukdIAcfGKF4)
 * [[Unity] First Person Controller [E01: Basic Controller]](https://www.youtube.com/watch?v=PmIPqGqp8UY)
+* [Asteroid Base](http://www.asteroidbase.com/devlog/7-learning-how-to-walk/)
 
 ## Contributors
 

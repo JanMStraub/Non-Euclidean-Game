@@ -15,23 +15,25 @@ We built a game with non-euclidean objects like the klein bottle or the boy's su
 
 ## Project Description
 
-In unserem Projekt arbeiten wir daran die Welt der nicht euklidischen Objekte etwas näher zu beleuchten und nahbar zu machen. Dazu benutzen wir die Kleinsche Flasche und die Boysche Fläche, da diese für unsere Zwecke am besten geeignet sind. Zu Beginn allerdings testen wir unsere Implementierung anhand eines Donuts. 
-Die Spielidee dahinter basiert darauf, dass der Spieler in eine Welt geworfen wird und nur durch herumgehen herausfinden muss, auf welcher Art von Welt er sich befindet. Eine weitere Idee wäre, das wir eine Art Hide & Seek Mechanik einbauen, bei der sich der Spieler vor Wachen verstecken muss, die ihn suchen. 
+In this project, we work on non-euclidean objects. We will help the user to better understand the complex geometry behind the boy's surface and the Klein bottle, by enabling him to explore these objects by themself. 
+In the beginning, we will test our implementation on a donut to work out the flaws and get the basics, like moving and gravity right.
 
-Boysche Fläche             |  Kleinsche Flasche
+The gaming idea behind all of this is, that the player has to find out, on which object he currently is. Expanding on this idea we thought that we would add some guards of some sort that the player has to avoid.
+
+Boy Surface             |  Klein bottle
 :-------------------------:|:-------------------------:
 ![](git_res/Boy_Surface-animation-small.gif)  |  ![](git_res/Klein_bottle.svg)
 
 ## Project Goals
-* Eine nichteuklidische Fläche bauen auf der man als Spielfigur herumlaufen kann und Wachen ausweichen muss. Fläche besteht aus kleinsche Flasche, Boysche Fläche, Möbiusband
-* Zwischenstufe: Wie in Mario Galaxy
-* Fortführung: Welt verändert sich und faltet sich während des Spiels zu einer anderen Form
-* Fortführung II: Auf der Welt gibt es Räume, Tunnel etc. die sich wie in dem Video verhalten
+* build two non-euclidean surfaces that the player can walk on. Surfaces must consist of the Klein bottle and the boy surface 
+* subgoal: Just like Mario Galaxy
+* subgoal two: World changes as the game progresses
+* subgoal three: On the surface, there are rooms, tunnels, and so on
 
 ## Project Ideas
 * Add a gun
 
-## Meeting notes 18.12.2020
+## Meeting notes 18.12.2020 (German)
 * Kleinsche Flasche und Boysche Fläche besser geeignet, da sie  keinen Rand haben
 * was passiert mit dem Spieler, wenn er in der Kleinschen Flasche an den Schnittpunkt kommt?
 * Sonnensystem Idee: Spieler weiß nicht auf welcher Fläche er sich befindet und muss das rausfinden
@@ -50,18 +52,18 @@ Boysche Fläche             |  Kleinsche Flasche
 * Unity Version 2019.4.4f1
 
 ## TODO
-* Alles.
+* Everything.
 
 ## Project Status
 ### 16.02.2021
-Grundmechanik der laufens auf dem Mesh eines Donuts ist implementiert. Allerdings gibt es noch ein paar Fehler, da man teilweise unter das Mesh laufen kann. Als nächster Schritt wird versucht eine bessere Steuerung zu implementieren.
+Basic mechanics for working on the mesh of the donut is implemented. But there are still some issues, for example, it is possible to walk under the mesh. In the next step, we will work more on the control mechanics.
 
 ![First test of the "gravity" code](git_res/Raycast_Test_1.gif)
 - - - - -
 
 ### 17.02.2021
 - GitHub README geupdated
-- Steuerungsmechanik für Kamera und Spieler implementiert. Er kann sich in alle Richtungen umschauen und seine Bewegungsrichtung ist abhängig von der Richtung in die die Kamera schaut. Allerdings gibt es noch ein paar unschöne Fehler...
+- Control mechanics for the camera and the player are implemented and are working properly now. The player now can move in all directions and the directions in which he walks are determined by the direction the player is looking at. But in this iteration, there are also some flaws ...
 
 ![First implementation of camera and player movment](git_res/Movment_Test_1.gif)
 - - - - - 

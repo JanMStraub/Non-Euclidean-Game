@@ -62,7 +62,7 @@ Basic mechanics for working on the mesh of the donut is implemented. But there a
 - - - - -
 
 ### 17.02.2021
-- GitHub README geupdated
+- GitHub README updated
 - Control mechanics for the camera and the player are implemented and are working properly now. The player now can move in all directions and the directions in which he walks are determined by the direction the player is looking at. But in this iteration, there are also some flaws ...
 
 ![First implementation of camera and player movment](git_res/Movment_Test_1.gif)

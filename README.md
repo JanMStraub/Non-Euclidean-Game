@@ -52,7 +52,7 @@ Boy Surface             |  Klein bottle
 * Unity Version 2019.4.4f1
 
 ## TODO
-* Everything.
+* Look in the [Projects tab](https://github.com/JanMStraub/Non-Euclidean-Game/projects/1).
 
 ## Project Status
 ### 16.02.2021

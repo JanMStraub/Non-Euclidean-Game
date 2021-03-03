@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gravity : MonoBehaviour
 {
     public float rayLength = 5;
-    public float detectRayLength = 3;
+    public float detectRayLength = 5;
 
     public LayerMask mask;
 
@@ -28,4 +28,5 @@ public class Gravity : MonoBehaviour
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * detectRayLength, Color.green);
         }
     }
+
 }

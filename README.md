@@ -68,6 +68,11 @@ Basic mechanics for working on the mesh of the donut is implemented. But there a
 ![First implementation of camera and player movment](git_res/Movment_Test_1.gif)
 - - - - - 
 
+### 03.03.2021
+- Tried to figure out the problem with raycast, found out that somehow the GroundDetector forgets what it should detect
+
+![Raycast Test with test course](git_res/Raycast_Test_2.gif)
+
 ## Inspiration
 
 * [Antichamber](http://www.antichamber-game.com)

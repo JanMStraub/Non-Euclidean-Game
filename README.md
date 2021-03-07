@@ -32,6 +32,10 @@ Boy Surface             |  Klein bottle
 
 ## Project Ideas
 * Add a gun
+* Add a little story
+* Add enemy model
+* Add player model and animation
+* Add skybox
 
 ## Meeting notes 18.12.2020 (German)
 * Kleinsche Flasche und Boysche Fläche besser geeignet, da sie  keinen Rand haben

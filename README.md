@@ -53,7 +53,7 @@ Boy Surface             |  Klein bottle
 * Ziel ist Umgang mit Werkzeugen und Spiel zu haben
 
 ## Technologies 
-* Unity Version 2019.4.4f1
+* Unity Version 2020.2.6f1
 
 ## TODO
 * Look in the [Projects tab](https://github.com/JanMStraub/Non-Euclidean-Game/projects/1).

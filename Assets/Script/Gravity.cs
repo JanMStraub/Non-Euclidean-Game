@@ -1,32 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gravity : MonoBehaviour
 {
-    public float rayLength = 5;
+    public float rayLength = 0.5f;
     public float detectRayLength = 5;
+    public float distToGround = 0.5f;
+    bool isGrounded = false;
+
+    public Text debug;
 
     public LayerMask mask;
 
     public Transform objectToPlace;
 
     void Update()
-    {
-        Ray ray = new Ray(transform.position, -transform.up);
+    {   
+        
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(ray, out hitInfo, rayLength, mask)) {
-            Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
-            print(hitInfo.collider.gameObject.name);
-            print(hitInfo.distance);
+        if (Physics.Raycast(transform.position, Vector3.down, out hitInfo, rayLength, mask)) {
 
             objectToPlace.position = hitInfo.point;
             objectToPlace.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
 
-        } else {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * detectRayLength, Color.green);
+            
+            
+
         }
     }
+
+    /*
+    void GroundCheck () {
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f)) {
+            debug.text = "Grounded";
+            isGrounded = true;
+        } else {
+            debug.text = "Not Grounded";
+            isGrounded = false;
+        }
+    }
+    */
 
 }

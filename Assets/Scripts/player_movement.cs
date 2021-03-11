@@ -13,6 +13,7 @@ public class player_movement : MonoBehaviour
 
     private float currentG = 0;
     private Vector3 graviDir;
+    private float yRotation = 0;
 
 
     // Start is called before the first frame update
@@ -24,8 +25,8 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rotation();
         controller.Move(Movement() + ApplyGravity());
+        //Turn();
     }
 
 
@@ -38,16 +39,24 @@ public class player_movement : MonoBehaviour
         return move;
     }
 
+    
+    void Turn()
+    {
+        float mouseX = Input.GetAxis("Horizontal") * 100 * Time.deltaTime;
+        yRotation += mouseX;
+        transform.localRotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
 
     Vector3 ApplyGravity()
     {
 
-        if (Input.GetButtonDown("Jump") && onGround())
+        if (Input.GetButtonDown("Jump") && OnGround())
         {
             currentG = -jumpHeight;
         }
 
-        if (onGround())
+        if (OnGround())
         {
             if (currentG > 0f)
             {
@@ -57,32 +66,20 @@ public class player_movement : MonoBehaviour
 
         currentG += gravity * Time.deltaTime;
 
-        return graviDir * -currentG;
+        return -transform.up * currentG;
     }
 
-    void Rotation()
-    {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
-        Debug.DrawRay(hit.point, hit.normal * 10, Color.red);
 
-        graviDir = Vector3.Normalize(hit.normal);
-
-        transform.up = hit.normal;
-    }
-
-    bool onGround()
+    bool OnGround()
     {
         RaycastHit hit;
         Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 
-        if(hit.distance < 1f)
+        if(hit.distance < 1.5f)
         {
             return true;
         } 
-        else
-        {
-            return false;
-        }
+        return false;
     }
+
 }

@@ -6,6 +6,10 @@ public class mouse_look : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
+
+    public GameObject projectile;
+
+
     float xRotation = 0f;
     float yRotation = 0f;
 
@@ -19,24 +23,32 @@ public class mouse_look : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerBody.localRotation = GroundNormal() * FPCamera();
+        playerBody.localRotation = GroundNormal() * TurnPlayer();
+        //TiltCamera();
     }
 
+
+
     
-    Quaternion FPCamera()
+    Quaternion TurnPlayer()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         yRotation += mouseX;
+
+        return Quaternion.Euler(0f, mouseX, 0f);
+    }
+    
+    void TiltCamera()
+    {
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        return Quaternion.Euler(0f, mouseX, 0f);
+        //transform.Rotate(Vector3.right * mouseY);
     }
-    
-
 
     Quaternion GroundNormal()
     {
@@ -46,6 +58,5 @@ public class mouse_look : MonoBehaviour
 
         Quaternion toRotation = Quaternion.FromToRotation(playerBody.up, hit.normal) * transform.rotation;
         return toRotation;
-
     }
 }

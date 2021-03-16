@@ -26,7 +26,6 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         controller.Move(Movement() + ApplyGravity());
-        //Turn();
     }
 
 
@@ -37,14 +36,6 @@ public class player_movement : MonoBehaviour
 
         Vector3 move = (transform.right * x + transform.forward * z) * movement_speed * Time.deltaTime;
         return move;
-    }
-
-    
-    void Turn()
-    {
-        float mouseX = Input.GetAxis("Horizontal") * 100 * Time.deltaTime;
-        yRotation += mouseX;
-        transform.localRotation = Quaternion.Euler(0, yRotation, 0);
     }
 
 
@@ -75,7 +66,7 @@ public class player_movement : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 
-        if(hit.distance < 1.5f)
+        if(hit.distance < 1f)
         {
             return true;
         } 

@@ -6,7 +6,6 @@ public class projectile_movement : MonoBehaviour
 {
     public float projectileSpeed = 1f;
     public float ttl = 5f;
-
     private float startTime;
 
     // Start is called before the first frame update

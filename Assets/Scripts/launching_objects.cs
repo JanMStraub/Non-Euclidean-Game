@@ -7,37 +7,28 @@ public class launching_objects : MonoBehaviour
     public GameObject projectile;
     GameObject[] projectileHandler = new GameObject[10];
     double[] projectileTTL = new double[10];
+    public int projectileUsed = 0;
+    public int projectileNextFree = 0;
 
-    public int pUsed = 0;
-    public int pNextFree = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if ((Input.GetButtonDown("Fire1")) && (pUsed < 10))
+        if ((Input.GetButtonDown("Fire1")) && (projectileUsed < 10))
         {
             Shoot();
         }
-        PDestroyer();
+        projectileDestroyer();
     }
 
 
     void Shoot()
     {
-        projectileHandler[pNextFree] = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
-        projectileTTL[pNextFree] = Time.time;
-        //Destroy();
-        pUsed++;
-        pNextFree = (pNextFree + 1) % 10;
+        projectileHandler[projectileNextFree] = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+        projectileTTL[projectileNextFree] = Time.time;
+        projectileUsed++;
+        projectileNextFree = (projectileNextFree + 1) % 10;
     }
 
-    void PDestroyer()
+    void projectileDestroyer()
     {
         for (int i=0; i<10; i++)
         {
@@ -46,7 +37,7 @@ public class launching_objects : MonoBehaviour
             {
                 Destroy(projectileHandler[i]);
                 projectileTTL[i] = 0;
-                pUsed--;
+                projectileUsed--;
             }
         }
     }

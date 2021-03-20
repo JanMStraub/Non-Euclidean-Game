@@ -6,10 +6,7 @@ public class mouse_look : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
-
     public GameObject projectile;
-
-
     float xRotation = 0f;
     float yRotation = 0f;
 
@@ -20,14 +17,13 @@ public class mouse_look : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         playerBody.localRotation = GroundNormal() * TurnPlayer();
         //TiltCamera();
     }
-
-
 
     
     Quaternion TurnPlayer()

@@ -18,7 +18,7 @@ public class projectile_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += (transform.forward * projectileSpeed);
+        transform.position += (transform.forward * projectileSpeed );
         transform.localRotation = GroundNormal();
     }
 

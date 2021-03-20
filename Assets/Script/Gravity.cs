@@ -27,7 +27,7 @@ public class Gravity : MonoBehaviour
             objectToPlace.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
 
             
-            
+            print(objectToPlace.position);
 
         }
     }

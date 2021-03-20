@@ -32,6 +32,10 @@ Boy Surface             |  Klein bottle
 
 ## Project Ideas
 * Add a gun
+* Add a little story
+* Add enemy model
+* Add player model and animation
+* Add skybox
 
 ## Meeting notes 18.12.2020 (German)
 * Kleinsche Flasche und Boysche Fläche besser geeignet, da sie  keinen Rand haben
@@ -49,7 +53,7 @@ Boy Surface             |  Klein bottle
 * Ziel ist Umgang mit Werkzeugen und Spiel zu haben
 
 ## Technologies 
-* Unity Version 2019.4.4f1
+* Unity Version 2020.2.6f1
 
 ## TODO
 * Look in the [Projects tab](https://github.com/JanMStraub/Non-Euclidean-Game/projects/1).

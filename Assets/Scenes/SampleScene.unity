@@ -229,8 +229,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
 --- !u!108 &705507994
 Light:
+=======
+--- !u!4 &239900112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239900111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 455201926}
+  m_Father: {fileID: 283118901}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &239900113
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239900111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &239900114
+MeshRenderer:
+>>>>>>> feature_raycast_gravity:Assets/Scenes/Testing.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -630,12 +663,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/SampleScene.unity
   - component: {fileID: 1677779395}
   - component: {fileID: 1677779394}
   - component: {fileID: 1677779393}
   - component: {fileID: 1677779392}
   m_Layer: 8
   m_Name: Cube
+=======
+  - component: {fileID: 1121496979}
+  - component: {fileID: 1121496982}
+  - component: {fileID: 1121496981}
+  - component: {fileID: 1121496980}
+  m_Layer: 3
+  m_Name: Plane (1)
+>>>>>>> feature_raycast_gravity:Assets/Scenes/Testing.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

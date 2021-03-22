@@ -70,12 +70,20 @@ Basic mechanics for working on the mesh of the donut is implemented. But there a
 - Control mechanics for the camera and the player are implemented and are working properly now. The player now can move in all directions and the directions in which he walks are determined by the direction the player is looking at. But in this iteration, there are also some flaws ...
 
 ![First implementation of camera and player movment](git_res/Movment_Test_1.gif)
-- - - - - 
+- - - - -
 
 ### 03.03.2021
 - Tried to figure out the problem with raycast, found out that somehow the GroundDetector forgets what it should detect
 
 ![Raycast Test with test course](git_res/Raycast_Test_2.gif)
+- - - - - 
+
+### 22.03.2021
+- Raycast gravity is finished
+- added bullet that is affected by gravity
+
+![Raycast Test with test course II](git_res/Raycast_Test_3.gif)
+- - - - - 
 
 ## Inspiration
 

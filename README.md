@@ -60,7 +60,7 @@ Boy Surface             |  Klein bottle
 
 ## Project Status
 ### 16.02.2021
-Basic mechanics for working on the mesh of the donut is implemented. But there are still some issues, for example, it is possible to walk under the mesh. In the next step, we will work more on the control mechanics.
+Basic mechanics for walking on the mesh of the donut is implemented. But there are still some issues, for example, it is possible to walk under the mesh. In the next step, we will work more on the control mechanics.
 
 ![First test of the "gravity" code](git_res/Raycast_Test_1.gif)
 - - - - -

@@ -36,7 +36,7 @@ public class projectile_movement : MonoBehaviour
     {
         if (Time.time - startTime < ttl)
         {
-            Destroy(this, 5);
+            Destroy(gameObject, 5);
         }
     }
 }

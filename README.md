@@ -85,6 +85,16 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 ![Raycast Test with test course II](git_res/Raycast_Test_3.gif)
 - - - - - 
 
+### 24./25.03.2021
+- implemented enemy ai
+- searching for a solution for navMesh
+
+- - - - - 
+### 27.03.2021
+- created menu
+- - - - -
+
+
 ## Inspiration
 
 * [Antichamber](http://www.antichamber-game.com)

@@ -12,7 +12,7 @@ public class player_movement : MonoBehaviour
 
     private float currentG = 0;
     private Vector3 graviDir;
-    private float yRotation = 0;
+    // private float yRotation = 0;
 
 
     // Start is called before the first frame update

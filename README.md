@@ -94,6 +94,14 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 - created menu
 - - - - -
 
+### 01.04.2021
+- portal functionality is imported
+- added functional klein bottle
+- added hollow donut
+- merged all features
+- added some low poly assets from the unity store
+- started building final version of each level
+
 
 ## Inspiration
 

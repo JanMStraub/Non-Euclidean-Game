@@ -832,7 +832,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931005932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD:Assets/Scenes/Donut.unity
   m_LocalPosition: {x: 14.45, y: 4.08, z: 0}
+=======
+  m_LocalPosition: {x: 2.84, y: 139.234, z: 4.2}
+>>>>>>> feature_portal_jan:Assets/Scenes/Raycast_Test.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

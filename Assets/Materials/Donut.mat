@@ -73,6 +73,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD
     - _Color: {r: 1, g: 0.86199415, b: 0.21226418, a: 1}
+=======
+    - _Color: {r: 1, g: 0.87076914, b: 0, a: 1}
+>>>>>>> feature_portal_jan
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

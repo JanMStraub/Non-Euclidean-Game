@@ -6,7 +6,7 @@ public class mouse_look : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
-    public GameObject projectile;
+
     float xRotation = 0f;
     float yRotation = 0f;
 
@@ -22,7 +22,7 @@ public class mouse_look : MonoBehaviour
     void Update()
     {
         playerBody.localRotation = GroundNormal() * TurnPlayer();
-        //TiltCamera();
+        TiltCamera();
     }
 
     
@@ -52,7 +52,9 @@ public class mouse_look : MonoBehaviour
         Physics.Raycast(playerBody.position, -playerBody.up, out hit, Mathf.Infinity);
         Debug.DrawRay(hit.point, hit.normal * 10, Color.red);
 
-        Quaternion toRotation = Quaternion.FromToRotation(playerBody.up, hit.normal) * transform.rotation;
+        Vector3 toDir = playerBody.up + (hit.normal - playerBody.up) * 0.05f;
+
+        Quaternion toRotation = Quaternion.FromToRotation(playerBody.up, toDir) * playerBody.rotation;
         return toRotation;
     }
 }

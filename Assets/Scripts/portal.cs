@@ -9,7 +9,6 @@ public class portal : MonoBehaviour {
     public Transform destination;
     private Transform player;
     private bool playerIsOverlapping = false;
-    private bool playerLeftPortal = false;
 
     void Start () {
         player = GameObject.FindWithTag("Player").transform;
@@ -19,7 +18,7 @@ public class portal : MonoBehaviour {
         if (playerIsOverlapping) {
 
 			// If this is true: The player has moved across the portal
-			if (playerLeftPortal)
+			if (true)
 			{
 				player.position = destination.position;
 				playerIsOverlapping = false;
@@ -33,6 +32,6 @@ public class portal : MonoBehaviour {
     }
 
     void OnTriggerExit() {
-        playerLeftPortal = true;
+        playerIsOverlapping = false;
     }
 }

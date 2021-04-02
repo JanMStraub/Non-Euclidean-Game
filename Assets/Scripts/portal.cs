@@ -20,8 +20,6 @@ public class portal : MonoBehaviour {
 			if (dotProduct < 0f && playerLeftPortal)
 			{
 				player.position = destination.position;
-                print("woosch");
-
 				playerIsOverlapping = false;
 			}
         }
@@ -29,11 +27,9 @@ public class portal : MonoBehaviour {
 
     void OnTriggerEnter() {
         playerIsOverlapping = true;
-        print("teleported");
     }
 
     void OnTriggerExit() {
         playerLeftPortal = true;
-        print("did it");
     }
 }

@@ -9,6 +9,7 @@ public class portal : MonoBehaviour {
     public Transform start;
     public Transform destination;
     private bool playerIsOverlapping = false;
+    private bool playerLeftPortal = false;
 
     void Update() {
         if (playerIsOverlapping) {
@@ -16,22 +17,23 @@ public class portal : MonoBehaviour {
 			float dotProduct = Vector3.Dot(start.up, portalToPlayer);
 
 			// If this is true: The player has moved across the portal
-			if (dotProduct < 0f)
+			if (dotProduct < 0f && playerLeftPortal)
 			{
-				// Teleport him!
-	
 				player.position = destination.position;
                 print("woosch");
 
 				playerIsOverlapping = false;
-                // controller.enable = true;
 			}
         }
     }
 
     void OnTriggerEnter() {
         playerIsOverlapping = true;
-        // controller.enable = false;
         print("teleported");
+    }
+
+    void OnTriggerExit() {
+        playerLeftPortal = true;
+        print("did it");
     }
 }

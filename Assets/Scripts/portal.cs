@@ -5,22 +5,25 @@ using UnityEngine;
 
 public class portal : MonoBehaviour {
 
-    public Transform player;
     public Transform start;
     public Transform destination;
+    private Transform player;
     private bool playerIsOverlapping = false;
     private bool playerLeftPortal = false;
 
+    void Start () {
+        player = GameObject.FindWithTag("Player").transform;
+    }
+
     void Update() {
         if (playerIsOverlapping) {
-            Vector3 portalToPlayer = player.position - start.position;
-			float dotProduct = Vector3.Dot(start.up, portalToPlayer);
 
 			// If this is true: The player has moved across the portal
-			if (dotProduct < 0f && playerLeftPortal)
+			if (playerLeftPortal)
 			{
 				player.position = destination.position;
 				playerIsOverlapping = false;
+                Debug.Log("teleported");
 			}
         }
     }

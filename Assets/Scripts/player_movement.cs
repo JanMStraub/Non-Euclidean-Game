@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-    public CharacterController controller;
     public float movement_speed = 10f;
     public float gravity = 0.1f;
     public float jumpHeight = 0.05f;
+    public LayerMask mask;
 
+    private CharacterController controller;
     private float currentG = 0;
     private Vector3 graviDir;
     // private float yRotation = 0;
@@ -63,8 +64,8 @@ public class player_movement : MonoBehaviour
     bool OnGround()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
-
+        Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity, mask);
+        
         if(hit.distance < 1f)
         {
             return true;

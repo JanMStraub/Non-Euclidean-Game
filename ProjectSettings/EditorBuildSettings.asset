@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 33aea377bd9984a569cce3f1582a2f73
-  - enabled: 1
-    path: Assets/Scenes/Donut.unity
-    guid: 00fbd4f2515eb415b8e55c5109035548
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/KleinBottle.unity
     guid: 426af2b7838b44da39a11f012bbd5963
+  - enabled: 1
+    path: Assets/Scenes/Donut.unity
+    guid: 2ed7a00e12dd64fd7a0703088b20f98e
   m_configObjects: {}

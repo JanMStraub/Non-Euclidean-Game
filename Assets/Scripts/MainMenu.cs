@@ -14,8 +14,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("KleinBottle");
     }
 
-    
-
     public void QuitGame() {
         Application.Quit();
     }

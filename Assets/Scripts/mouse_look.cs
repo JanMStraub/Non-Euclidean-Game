@@ -21,7 +21,9 @@ public class mouse_look : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerBody.localRotation = GroundNormal() * TurnPlayer();
+        if (Time.timeScale == 1) {
+            playerBody.localRotation = GroundNormal() * TurnPlayer();
+        }
         //TiltCamera();
     }
 

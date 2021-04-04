@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
+            Cursor.lockState = CursorLockMode.Confined;
             Debug.Log("Ecs");
             if (GameIsPaused) {
                 Resume();

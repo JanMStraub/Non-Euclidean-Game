@@ -15,6 +15,7 @@ public class mouse_look : MonoBehaviour
     void FixedUpdate()
     {
         if (Time.timeScale == 1) {
+            Cursor.lockState = CursorLockMode.Locked;
             playerBody.localRotation = GroundNormal() * TurnPlayer();
         }
         //TiltCamera();

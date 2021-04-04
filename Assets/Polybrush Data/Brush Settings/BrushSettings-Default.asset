@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brushRadiusMin: 0.001
   brushRadiusMax: 5
-  _radius: 1
-  _falloff: 0.5
+  _radius: 5
+  _falloff: 1
   _strength: 1
   _curve:
     serializedVersion: 2

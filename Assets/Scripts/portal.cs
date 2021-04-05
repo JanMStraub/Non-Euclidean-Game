@@ -48,7 +48,6 @@ public class Portal : MonoBehaviour {
         if (cooldown <= 0.0f) {
             timeIsUp = true;
         }
-        Debug.Log(cooldown);
         cooldown -= Time.deltaTime;
 
     }

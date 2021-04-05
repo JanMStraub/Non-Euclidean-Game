@@ -14,9 +14,18 @@ public class EnemyMovment : MonoBehaviour
     [SerializeField] float rayCastOffset = 0.1f;
     [SerializeField] float detectionDistance = 10f;
 
+    public LayerMask whatIsGround, whatIsPlayer;
+
+    //Patrolling
+    public Vector3 walkPoint;
+    bool walkPointSet;
+    public float walkPointRange;
+
     private void Update () {
         Pathfinding();
-        Move();
+        // Move();
+        //Check for sight and attack range
+       Patrolling();
     }
 
     private void Turn () {
@@ -26,7 +35,35 @@ public class EnemyMovment : MonoBehaviour
     }
 
     private void Move () {
-        transform.position += transform.forward * movmentSpeed * Time.deltaTime;
+        transform.position += new Vector3 (movmentSpeed * Time.deltaTime * walkPoint.x, walkPoint.y * Time.deltaTime, walkPoint.z * Time.deltaTime);
+    }
+
+    private void Patrolling()
+    {
+        if (!walkPointSet) SearchWalkPoint();
+
+        if (walkPointSet)
+            transform.position += transform.forward * movmentSpeed * Time.deltaTime;
+
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //Walkpoint reached
+        if (distanceToWalkPoint.magnitude < 1f)
+            walkPointSet = false;
+    }
+
+    private void SearchWalkPoint()
+    {
+        //Calculate random point in range
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float randomY = Random.Range(-walkPointRange, walkPointRange);
+
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
+
+        if (Physics.Raycast(walkPoint, -transform.up, 1f, whatIsGround))
+            walkPointSet = true;
     }
 
     private void Pathfinding() {

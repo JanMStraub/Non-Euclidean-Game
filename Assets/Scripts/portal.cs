@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class portal : MonoBehaviour {
+public class Portal : MonoBehaviour {
 
     public Transform start;
     public Transform destination;

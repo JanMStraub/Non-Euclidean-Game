@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 0.1f;
     public float jumpHeight = 0.05f;
     public LayerMask mask;
+    public GameObject EnemyBullet;
 
     private CharacterController controller;
     private float currentG = 0;
@@ -101,8 +102,11 @@ public class PlayerMovement : MonoBehaviour
         };
     }
 
-    void OnTriggerEnter() {
-        TakeDamage(damage);
+    void OnCollisionEnter(Collision dataFromCollision) {
+        if (dataFromCollision.gameObject.name == "Bullet") {
+            Debug.Log("hit");
+            TakeDamage(damage);
+        }
     }
 
 }

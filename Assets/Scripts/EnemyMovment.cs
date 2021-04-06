@@ -79,7 +79,7 @@ public class EnemyMovment : MonoBehaviour
         cooldown -= Time.deltaTime;
     }
 
-    void OnTriggerExit() {
+    void OnCollisionEnter() {
         wasHit = true;
     }
 

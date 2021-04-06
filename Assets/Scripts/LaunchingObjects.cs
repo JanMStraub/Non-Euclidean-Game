@@ -12,7 +12,7 @@ public class LaunchingObjects : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetButtonDown("Fire1")) && (projectileUsed < 10))
+        if ((Input.GetButtonDown("Fire1")) && (projectileUsed < 3))
         {
             Shoot();
         }

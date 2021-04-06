@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 graviDir;
     // private float yRotation = 0;
     private GameObject flashlight;
+    private int health = 3;
+    private int damage = 1;
 
 
     // Start is called before the first frame update
@@ -89,6 +91,18 @@ public class PlayerMovement : MonoBehaviour
             return true;
         } 
         return false;
+    }
+
+    public void TakeDamage(int damage) {
+        health -= damage;
+
+        if (health <= 0) {
+            Destroy(gameObject);
+        };
+    }
+
+    void OnTriggerEnter() {
+        TakeDamage(damage);
     }
 
 }

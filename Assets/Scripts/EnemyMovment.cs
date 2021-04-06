@@ -9,14 +9,23 @@ using UnityEngine;
 public class EnemyMovment : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float movmentSpeed = 10f;
+    [SerializeField] float movmentSpeed = 8f;
     [SerializeField] float rotationalDamp = 0.5f;
     [SerializeField] float rayCastOffset = 0.1f;
     [SerializeField] float detectionDistance = 10f;
 
+    private float cooldown = 5f;
+    private bool wasHit = false;
+
     private void Update () {
-        Pathfinding();
-        Move();
+        if (!wasHit) {
+            Pathfinding();
+            Move();
+        }
+
+        if (cooldown >= -1.0f){
+            Timer();
+        }
     }
 
     private void Turn () {
@@ -61,4 +70,17 @@ public class EnemyMovment : MonoBehaviour
             Turn();
         }
     }
+
+    void Timer() {
+
+        if (cooldown <= 0.0f) {
+            wasHit = false;
+        }
+        cooldown -= Time.deltaTime;
+    }
+
+    void OnTriggerExit() {
+        wasHit = true;
+    }
+
 }

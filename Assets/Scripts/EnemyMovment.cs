@@ -14,28 +14,9 @@ public class EnemyMovment : MonoBehaviour
     [SerializeField] float rayCastOffset = 0.1f;
     [SerializeField] float detectionDistance = 10f;
 
-    public LayerMask mask;
-    public Transform player;
-
-    public LayerMask whatIsGround, whatIsPlayer;
-
-    //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
-
-        //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
     private void Update () {
         Pathfinding();
         Move();
-
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
     private void Turn () {
@@ -80,27 +61,4 @@ public class EnemyMovment : MonoBehaviour
             Turn();
         }
     }
-
-    private void AttackPlayer() {
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
-        {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
-    }
-
-        private void ResetAttack()
-    {
-        alreadyAttacked = false;
-    }
-
 }

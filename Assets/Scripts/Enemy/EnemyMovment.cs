@@ -20,18 +20,18 @@ public class EnemyMovment : MonoBehaviour
 
     [SerializeField] float stoppingDistance = 5f;
 
-    private EnemyHit EnemyHit;
+    private EnemyHit _EnemyHit;
 
 
     void Start () {
 
-        EnemyHit = GameObject.Find("Enemy").GetComponent<EnemyHit>();
+        _EnemyHit = GameObject.Find("Enemy").GetComponent<EnemyHit>();
     }
 
 
     private void Update () {
 
-        if (!EnemyHit._wasHit) {
+        if (!_EnemyHit.wasHit) {
 
             if (Vector3.Distance(transform.position, target.position) > stoppingDistance) {
 

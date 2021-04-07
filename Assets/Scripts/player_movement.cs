@@ -27,6 +27,11 @@ public class player_movement : MonoBehaviour
         controller.Move(Movement() + ApplyGravity());
     }
 
+    void Update()
+    {
+        FlipOver();
+    }
+
 
     Vector3 Movement()
     {
@@ -65,11 +70,22 @@ public class player_movement : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 
-        if(hit.distance < 1f)
+        if(hit.distance < 0.7f)
         {
             return true;
         } 
         return false;
+    }
+
+
+    void FlipOver()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            transform.position += 2 * (-transform.up);
+            
+            transform.up = -transform.up;
+        }
     }
 
 }

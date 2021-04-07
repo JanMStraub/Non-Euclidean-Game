@@ -17,7 +17,7 @@ public class projectile_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += (transform.forward * projectileSpeed );
+        transform.position += (transform.forward * projectileSpeed * Time.deltaTime);
         transform.localRotation = GroundNormal();
     }
 
@@ -36,7 +36,7 @@ public class projectile_movement : MonoBehaviour
     {
         if (Time.time - startTime < ttl)
         {
-            Destroy(gameObject, 5);
+            Destroy(gameObject, 2);
         }
     }
 }

@@ -32,7 +32,7 @@ public class launching_objects : MonoBehaviour
     {
         for (int i=0; i<10; i++)
         {
-            if((Time.time - projectileTTL[i] > 3f) && (projectileTTL[i] != 0))
+            if((Time.time - projectileTTL[i] > 10f) && (projectileTTL[i] != 0))
             {
                 Destroy(projectileHandler[i]);
                 projectileTTL[i] = 0;

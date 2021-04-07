@@ -6,13 +6,14 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
+
     public Sound[] sounds;
+
     public static AudioManager instance;
 
-    void Awake()
-    {
+    void Awake () {
+        // To prevent the existence of two audio managers
         if (instance == null) {
             instance = this;
         } else {
@@ -20,9 +21,11 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        // Sound is not stopped after loading a scene
         DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds) {
+
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
@@ -31,15 +34,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start() {
+    void Start () {
         Play("Theme");
     }
 
     public void Play (string name) {
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        
         if (s == null) {
             return;
         }
+
         s.source.Play();
     }
 }

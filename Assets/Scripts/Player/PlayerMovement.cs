@@ -9,15 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 0.1f;
     public float jumpHeight = 0.05f;
     public LayerMask mask;
-    public GameObject EnemyBullet;
-
     private CharacterController controller;
     private float currentG = 0;
     private Vector3 graviDir;
     // private float yRotation = 0;
     private GameObject flashlight;
-    private int health = 3;
-    private int damage = 1;
 
 
     // Start is called before the first frame update
@@ -93,20 +89,4 @@ public class PlayerMovement : MonoBehaviour
         } 
         return false;
     }
-
-    public void TakeDamage(int damage) {
-        health -= damage;
-
-        if (health <= 0) {
-            Destroy(gameObject);
-        };
-    }
-
-    void OnCollisionEnter(Collision dataFromCollision) {
-        if (dataFromCollision.gameObject.name == "Bullet") {
-            Debug.Log("hit");
-            TakeDamage(damage);
-        }
-    }
-
 }

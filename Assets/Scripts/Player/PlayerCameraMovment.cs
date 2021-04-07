@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class PlayerCameraMovment : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
-    public GameObject projectile;
-    float xRotation = 0f;
-    float yRotation = 0f;
+    private float _xRotation = 0f;
+    private float _yRotation = 0f;
 
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class MouseLook : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
-        yRotation += mouseX;
+        _yRotation += mouseX;
 
         return Quaternion.Euler(0f, mouseX, 0f);
     }
@@ -35,10 +34,10 @@ public class MouseLook : MonoBehaviour
     {
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+        _xRotation -= mouseY;
+        _xRotation = Mathf.Clamp(_xRotation, -90, 90);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         //transform.Rotate(Vector3.right * mouseY);
     }
 

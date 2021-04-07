@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyScript : MonoBehaviour {
-    private KeyHandler _KH;
+    private HUDHandler _HUDH;
     public AudioClip keySound;
 
     void Start () {
-        _KH = GameObject.Find("Canvas").GetComponent<KeyHandler>();
+        _HUDH = GameObject.Find("Canvas").GetComponent<HUDHandler>();
     }
 
     private void OnTriggerEnter (Collider other) {
-        _KH.keys++;
+        _HUDH.keys++;
         // creates temporary audio source
         AudioSource.PlayClipAtPoint(keySound, transform.position);
         Destroy(gameObject);

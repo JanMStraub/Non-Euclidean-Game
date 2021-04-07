@@ -1,23 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
-{
-    public float projectileSpeed = 1f;
-    public float ttl = 5f;
-    private float startTime;
+public class PlayerProjectileMovement : MonoBehaviour {
+    private float _speed = 1f;
+    private GameObject _enemy;
+    private Vector3 _target;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        float startTime = Time.time;
+    void Start () {
+        _enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += (transform.forward * projectileSpeed );
+        transform.position += (transform.forward * _speed);
         transform.localRotation = GroundNormal();
     }
 
@@ -32,11 +29,9 @@ public class ProjectileMovement : MonoBehaviour
     }
 
 
-    void Destroyer()
-    {
-        if (Time.time - startTime < ttl)
-        {
-            Destroy(gameObject, 5);
+    void OnTriggerEnter (Collider other) {
+        if (other.CompareTag("Enemy")) {
+            Destroy(gameObject);
         }
     }
 }

@@ -1,62 +1,48 @@
+/*
+*   Code from Brackeys
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
-{
+public class EnemyAttack : MonoBehaviour {
+    private float _damage = 10f;
+    private float _range = 100f;
+    private float _fireRate = 0.5f;
+    private float _nextTimeToFire = 0f;
+    private float attackRange = 10f;
     public GameObject projectile;
-    GameObject[] projectileHandler = new GameObject[10];
-    double[] projectileTTL = new double[10];
-    public int projectileUsed = 0;
-    public int projectileNextFree = 0;
-
     public LayerMask whatIsPlayer;
-
-    public float attackRange = 10f;
-    private float enemyCooldown = 2f;
-
     private bool playerInAttackRange;
-    private bool canAttack = true;
 
-    void Update()
-    {   
+
+
+    void Update () {   
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        if (playerInAttackRange && canAttack)
-        {
+        if (playerInAttackRange && Time.time >= _nextTimeToFire) {   
+            _nextTimeToFire = Time.time + 1f/_fireRate;
             Shoot();
-            StartCoroutine(AttackCooldown());
             Debug.Log("shooting");
         }
-        projectileDestroyer();
     }
 
 
-    void Shoot()
-    {
-        projectileHandler[projectileNextFree] = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
-        projectileTTL[projectileNextFree] = Time.time;
-        projectileUsed++;
-        projectileNextFree = (projectileNextFree + 1) % 10;
-    }
+    void Shoot () {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, _range)) {
+            Debug.Log(hit.transform.name);
 
-    void projectileDestroyer()
-    {
-        for (int i=0; i<10; i++)
-        {
-            if((Time.time - projectileTTL[i] > 3f) && (projectileTTL[i] != 0))
-            {
-                Destroy(projectileHandler[i]);
-                projectileTTL[i] = 0;
-                projectileUsed--;
+            PlayerHit player = hit.transform.GetComponent<PlayerHit>();
+            if (player != null) {
+                player.TakeDamage(_damage);
             }
+
+            GameObject usedProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+            Destroy(usedProjectile, 10f);
+        } else {
+            GameObject usedProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
+            Destroy(usedProjectile, 10f);
         }
     }
-
-    IEnumerator AttackCooldown() {
-        canAttack = false;
-        yield return new WaitForSeconds(enemyCooldown);
-        canAttack = true;
-    }
-
-
 }

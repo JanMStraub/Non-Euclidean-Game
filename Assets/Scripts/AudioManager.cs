@@ -1,3 +1,7 @@
+/*
+*   Code from https://www.youtube.com/watch?v=6OT43pvUyfY
+*/
+
 using UnityEngine.Audio;
 using UnityEngine;
 using System;

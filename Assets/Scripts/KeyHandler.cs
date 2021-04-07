@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class KeyHandler : MonoBehaviour
-{
+public class KeyHandler : MonoBehaviour {
     public TMP_Text KeyText;
     public int keys = 0;
 

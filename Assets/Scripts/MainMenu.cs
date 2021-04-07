@@ -5,30 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public bool fly = false;
+    private bool _fly = false;
 
-    void Start() {
+    void Start () {
         Cursor.lockState = CursorLockMode.Confined;
     }
     
-    public void PlayGameDonut() {
+    public void PlayGameDonut () {
         SceneManager.LoadScene("Donut");
     }
 
-    public void PlayGameKleinBottle() {
+    public void PlayGameKleinBottle () {
         SceneManager.LoadScene("KleinBottle");
     }
 
-    public void QuitGame() {
+    public void QuitGame () {
         Application.Quit();
     }
 
-    public void print() {
-        if (fly) {
+    public void output () {
+        if (_fly) {
             Debug.Log("fly");
         }
 
-        if (!fly) {
+        if (!_fly) {
             Debug.Log("no fly");
         }
     }

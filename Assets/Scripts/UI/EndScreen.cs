@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverMenu : MonoBehaviour {
-    public GameObject GameOverScreen;
-    public bool PlayerIsAlive = true;
+public class EndScreen : MonoBehaviour {
+    public GameObject EndScreenMenu;
+    public bool allKeys = false;
 
     // Update is called once per frame
     void Update () {
-        if (!PlayerIsAlive) {
+        if (allKeys) {
             Cursor.lockState = CursorLockMode.Confined;
             Pause();
         }
@@ -21,7 +21,7 @@ public class GameOverMenu : MonoBehaviour {
     }
 
     void Pause () {
-        GameOverScreen.SetActive(true);
+        EndScreenMenu.SetActive(true);
         Time.timeScale = 0f; // Game is paused
     }
 }

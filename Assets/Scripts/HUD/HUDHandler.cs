@@ -12,10 +12,18 @@ public class HUDHandler : MonoBehaviour {
     public float health = 0;
     public int ammo = 0;
 
+    private EndScreen _ES;
+
+    void Start () {
+        _ES = GameObject.Find("Canvas").GetComponent<EndScreen>();
+    }
 
     void Update () {
         KeyText.text = "Keys : " + keys;
         HealthText.text = "Health : " + health;
         AmmoText.text = "Ammo : " + ammo;
+        if (keys == 5) {
+            _ES.allKeys = true;
+        }
     }
 }

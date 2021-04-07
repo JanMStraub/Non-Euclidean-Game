@@ -18,8 +18,6 @@ public class EnemyMovment : MonoBehaviour
 
     [SerializeField] float detectionDistance = 10f;
 
-    [SerializeField] float stoppingDistance = 5f;
-
     private EnemyHit _EnemyHit;
 
 
@@ -33,16 +31,8 @@ public class EnemyMovment : MonoBehaviour
 
         if (!_EnemyHit.wasHit) {
 
-            if (Vector3.Distance(transform.position, target.position) > stoppingDistance) {
-
-                Pathfinding();
-                Move();
-            } else {
-                transform.position = this.transform.position;
-                Vector3 lookVector = target.transform.position - transform.position;
-                Quaternion lookAtPlayer = Quaternion.LookRotation(lookVector);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookAtPlayer, 1);
-            }
+            Pathfinding();
+            Move();
 
         } else {
             Debug.Log("hit");

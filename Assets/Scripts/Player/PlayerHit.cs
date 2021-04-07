@@ -6,7 +6,7 @@ public class PlayerHit : MonoBehaviour {
 
     private GameOverMenu _GOM;
 
-    private float _health = 30f;
+    private float _health = 50f;
 
     void Start () {
 

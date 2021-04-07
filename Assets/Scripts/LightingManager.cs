@@ -42,21 +42,21 @@ public class LightingManager : MonoBehaviour {
 
 
 
-    //Try to find a directional light to use if we haven't set one
+    //Try to find a directional light to use if we haven't set one lol
     private void OnValidate () {
-        if (DirectionalLight != null)
+        if (_DirectionalLight != null)
             return;
 
         //Search for lighting tab sun
         if (RenderSettings.sun != null) {
-            DirectionalLight = RenderSettings.sun;
+            _DirectionalLight = RenderSettings.sun;
         } else { //Search scene for light that fits criteria (directional)
             Light[] lights = GameObject.FindObjectsOfType<Light>();
 
             foreach (Light light in lights) {
 
                 if (light.type == LightType.Directional) {
-                    DirectionalLight = light;
+                    _DirectionalLight = light;
                     return;
                 }
             }

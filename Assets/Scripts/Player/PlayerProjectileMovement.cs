@@ -14,11 +14,7 @@ public class PlayerProjectileMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD:Assets/Scripts/projectile_movement.cs
-        transform.position += (transform.forward * projectileSpeed * Time.deltaTime);
-=======
         transform.position += (transform.forward * _speed);
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerProjectileMovement.cs
         transform.localRotation = GroundNormal();
     }
 
@@ -33,17 +29,9 @@ public class PlayerProjectileMovement : MonoBehaviour {
     }
 
 
-<<<<<<< HEAD:Assets/Scripts/projectile_movement.cs
-    void Destroyer()
-    {
-        if (Time.time - startTime < ttl)
-        {
-            Destroy(gameObject, 2);
-=======
     void OnTriggerEnter (Collider other) {
         if (other.CompareTag("Enemy")) {
             Destroy(gameObject);
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerProjectileMovement.cs
         }
     }
 }

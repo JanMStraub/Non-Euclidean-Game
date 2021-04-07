@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() {
         flashlightControll();
+        FlipOver();
     }
 
     private void flashlightControll() {
@@ -43,11 +44,6 @@ public class PlayerMovement : MonoBehaviour
                 flashlight.SetActive(true);
             }
         }
-    }
-
-    void Update()
-    {
-        FlipOver();
     }
 
 
@@ -86,21 +82,14 @@ public class PlayerMovement : MonoBehaviour
     bool OnGround()
     {
         RaycastHit hit;
-<<<<<<< HEAD:Assets/Scripts/player_movement.cs
         Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 
-        if(hit.distance < 0.7f)
-=======
-        Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity, mask);
-        
         if(hit.distance < 1f)
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerMovement.cs
         {
             return true;
         } 
         return false;
     }
-<<<<<<< HEAD:Assets/Scripts/player_movement.cs
 
 
     void FlipOver()
@@ -113,6 +102,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-=======
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerMovement.cs
 }

@@ -6,36 +6,15 @@ public class PlayerCameraMovment : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
-<<<<<<< HEAD:Assets/Scripts/mouse_look.cs
-
-    float xRotation = 0f;
-    float yRotation = 0f;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-=======
     private float _xRotation = 0f;
     private float _yRotation = 0f;
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerCameraMovment.cs
 
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-<<<<<<< HEAD:Assets/Scripts/mouse_look.cs
+    void FixedUpdate () {
+        Cursor.lockState = CursorLockMode.Locked;
         playerBody.localRotation = GroundNormal() * TurnPlayer();
         TiltCamera();
-=======
-        if (Time.timeScale == 1) {
-            Cursor.lockState = CursorLockMode.Locked;
-            playerBody.localRotation = GroundNormal() * TurnPlayer();
-        }
-        //TiltCamera();
->>>>>>> feature_portal_ring_jan:Assets/Scripts/Player/PlayerCameraMovment.cs
     }
 
     

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private bool _fly = false;
 
     void Start () {
         Cursor.lockState = CursorLockMode.Confined;
@@ -24,15 +23,4 @@ public class MainMenu : MonoBehaviour
     public void QuitGame () {
         Application.Quit();
     }
-
-    public void output () {
-        if (_fly) {
-            Debug.Log("fly");
-        }
-
-        if (!_fly) {
-            Debug.Log("no fly");
-        }
-    }
-
 }

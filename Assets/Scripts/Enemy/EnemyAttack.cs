@@ -45,4 +45,12 @@ public class EnemyAttack : MonoBehaviour {
             Destroy(usedProjectile, 10f);
         }
     }
+
+    void OnTriggerEnter (Collider other) {
+        PlayerHit player = GameObject.Find("Player").GetComponent<PlayerHit>();
+        if (other.CompareTag("Player")) {
+            Debug.Log("bump");
+            player.TakeDamage(_damage);
+        }
+    }
 }

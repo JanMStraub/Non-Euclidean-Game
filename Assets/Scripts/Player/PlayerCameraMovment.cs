@@ -10,36 +10,35 @@ public class PlayerCameraMovment : MonoBehaviour
     private float _yRotation = 0f;
 
 
-    // Update is called once per frame
     void FixedUpdate () {
+
         Cursor.lockState = CursorLockMode.Locked;
         playerBody.localRotation = GroundNormal() * TurnPlayer();
         TiltCamera();
     }
 
     
-    Quaternion TurnPlayer()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+    Quaternion TurnPlayer () {
 
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         _yRotation += mouseX;
 
         return Quaternion.Euler(0f, mouseX, 0f);
     }
     
-    void TiltCamera()
-    {
+
+    void TiltCamera () {
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -90, 90);
 
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        //transform.Rotate(Vector3.right * mouseY);
     }
 
-    Quaternion GroundNormal()
-    {
+
+    Quaternion GroundNormal () {
+        
         RaycastHit hit;
         Physics.Raycast(playerBody.position, -playerBody.up, out hit, Mathf.Infinity);
         Debug.DrawRay(hit.point, hit.normal * 10, Color.red);

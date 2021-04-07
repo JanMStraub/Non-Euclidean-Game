@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class EnemyHit : MonoBehaviour {
 
-    public bool _wasHit = false;
+    public bool wasHit = false;
+
     private float _enemyCooldown = 0f;
 
     void Update () {
+
         _enemyCooldown -= Time.deltaTime;
 
         if (_enemyCooldown <= 0) {
-            _wasHit = false;
+            wasHit = false;
         }
     }
+
+    
     public void stunned () {
-        _wasHit = true;
+
+        wasHit = true;
         _enemyCooldown = 5f;
     }
 }

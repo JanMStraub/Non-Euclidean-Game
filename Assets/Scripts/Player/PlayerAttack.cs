@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private float _range = 100f;
 
-    private int _magazine = 5;
+    private int _magazine = 10;
 
     private float _fireRate = 0.5f;
 

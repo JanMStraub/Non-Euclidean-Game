@@ -1,5 +1,5 @@
 ﻿/*
-*   Code from Brackeys
+*   Code inspired by Brackeys
 */
 
 using System.Collections;
@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private float _range = 100f;
 
-    private int _magazine = 10;
+    private int _magazine = 5;
 
     private float _fireRate = 0.5f;
 
@@ -31,8 +31,8 @@ public class PlayerAttack : MonoBehaviour {
 
     void Update () {
 
+        // Shoots if mouse button is pressed, cooldown has finished and player has ammonition left
         if ((Input.GetButton("Fire1")) && Time.time >= _nextTimeToFire && _magazine > 0) {
-
             _nextTimeToFire = Time.time + 1f / _fireRate;
             _magazine--;
             _HUDH.ammo--;
@@ -45,12 +45,10 @@ public class PlayerAttack : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, _range)) {
-
-            Debug.Log(hit.transform.name);
-
             EnemyHit enemy = hit.transform.GetComponent<EnemyHit>();
+
+            // Enemy movment stopps
             if (enemy != null) {
-                
                 enemy.stunned();
             }
 

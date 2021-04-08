@@ -11,6 +11,7 @@ We built a game with non-euclidean objects like the klein bottle or the boy's su
 * [Project Status](#project-status)
 * [Inspiration](#inspiration)
 * [Resources](#resources)
+* [Presentation Resources](#presentation-resources)
 * [Contributors](#contributors)
 
 ## Project Description
@@ -133,6 +134,9 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 * [Psuedo-Non-euclidean geometry in Unity [A response video of sorts]](https://www.youtube.com/watch?v=ukdIAcfGKF4)
 * [[Unity] First Person Controller [E01: Basic Controller]](https://www.youtube.com/watch?v=PmIPqGqp8UY)
 * [Asteroid Base](http://www.asteroidbase.com/devlog/7-learning-how-to-walk/)
+
+## Presentation Resources
+* [Construction of the Klein Bottle](https://blender.stackexchange.com/questions/18955/modelling-a-klein-bottle)
 
 ## Contributors
 

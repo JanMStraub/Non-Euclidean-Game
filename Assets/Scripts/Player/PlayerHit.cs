@@ -17,6 +17,7 @@ public class PlayerHit : MonoBehaviour {
     }
 
 
+    // If enemy hits the player his health is reduced
     public void TakeDamage (float amount) {
 
         _health -= amount;
@@ -27,6 +28,7 @@ public class PlayerHit : MonoBehaviour {
     }
 
 
+    // If player dies he is destroyed and the game over screen is displayed
     void Die () {
         
         Destroy(gameObject);

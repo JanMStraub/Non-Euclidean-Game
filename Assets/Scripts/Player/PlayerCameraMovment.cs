@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCameraMovment : MonoBehaviour
-{
+public class PlayerCameraMovment : MonoBehaviour {
+
     public float mouseSensitivity = 100f;
+
     public Transform playerBody;
+
     private float _xRotation = 0f;
+    
     private float _yRotation = 0f;
 
 

@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate () {   
 
         if (Time.timeScale == 1) {
-
             _controller.Move(Movement() + ApplyGravity());
         }
     }
@@ -48,9 +47,7 @@ public class PlayerMovement : MonoBehaviour {
     private void flashlightControll () {
 
         if (Input.GetKeyDown(KeyCode.Mouse1)) {
-
             if (_flashlight.activeSelf) {
-
                 _flashlight.SetActive(false);
             } else {
                 _flashlight.SetActive(true);
@@ -73,14 +70,11 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 ApplyGravity () {
 
         if (Input.GetButtonDown("Jump") && OnGround()) {
-
             _currentG = -jumpHeight;
         }
 
         if (OnGround()) {
-
             if (_currentG > 0f) {
-
                 _currentG = 0f;
             }
         }
@@ -97,7 +91,6 @@ public class PlayerMovement : MonoBehaviour {
         Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 
         if(hit.distance < 1f) {
-
             return true;
         } 
 
@@ -108,7 +101,6 @@ public class PlayerMovement : MonoBehaviour {
     void FlipOver () {
 
         if (Input.GetKeyDown("e")) {
-
             transform.position += 2 * (-transform.up);
             transform.up = -transform.up;
         }

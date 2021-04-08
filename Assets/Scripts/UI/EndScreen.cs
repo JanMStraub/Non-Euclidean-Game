@@ -10,11 +10,9 @@ public class EndScreen : MonoBehaviour {
     public bool allKeys = false;
 
 
-    // Update is called once per frame
     void Update () {
 
-        if (allKeys) {
-
+        if (allKeys) { // True if player won the game
             Cursor.lockState = CursorLockMode.Confined;
             Pause();
         }

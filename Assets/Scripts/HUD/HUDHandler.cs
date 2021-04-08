@@ -26,7 +26,7 @@ public class HUDHandler : MonoBehaviour {
         _ES = GameObject.Find("Canvas").GetComponent<EndScreen>();
     }
 
-
+    // Updates the values on screen
     void Update () {
 
         KeyText.text = "Keys : " + keys;
@@ -34,7 +34,6 @@ public class HUDHandler : MonoBehaviour {
         AmmoText.text = "Ammo : " + ammo;
 
         if (keys == 5) {
-            
             _ES.allKeys = true;
         }
     }

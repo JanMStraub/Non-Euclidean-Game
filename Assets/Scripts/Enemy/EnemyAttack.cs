@@ -1,5 +1,5 @@
 /*
-*   Code from Brackeys
+*   Code inspired by Brackeys
 */
 
 using System.Collections;
@@ -20,20 +20,19 @@ public class EnemyAttack : MonoBehaviour {
 
     private float _nextTimeToFire = 0f;
 
-    private float attackRange = 20f;
+    private float _attackRange = 20f;
     
-    private bool playerInAttackRange;
+    private bool _playerInAttackRange;
 
 
     void Update () {   
 
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        _playerInAttackRange = Physics.CheckSphere(transform.position, _attackRange, whatIsPlayer);
 
         // Regulate fire rate with cooldown time
-        if (playerInAttackRange && Time.time >= _nextTimeToFire) {   
+        if (_playerInAttackRange && Time.time >= _nextTimeToFire) {   
             _nextTimeToFire = Time.time + 1f/_fireRate;
             Shoot();
-            Debug.Log("shooting");
         }
     }
 
@@ -43,19 +42,21 @@ public class EnemyAttack : MonoBehaviour {
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, _range)) {
-            Debug.Log(hit.transform.name);
 
             PlayerHit player = hit.transform.GetComponent<PlayerHit>();
-
+            
+            // Check if hit object is player and deal damage
             if (player != null) {
                 player.TakeDamage(_damage);
             }
 
+            // Spawn projectile and shoot it
             GameObject usedProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
-            Destroy(usedProjectile, 10f);
-        } else {
+            Destroy(usedProjectile, 10f); // Destroy projectile after 10 seconds
+        } else { // Shoot even if the raycast does not hit the player
+            // Spawn projectile and shoot it
             GameObject usedProjectile = Instantiate(projectile, transform.position + transform.forward, transform.rotation);
-            Destroy(usedProjectile, 10f);
+            Destroy(usedProjectile, 10f); // Destroy projectile after 10 seconds
         }
     }
 
@@ -65,7 +66,6 @@ public class EnemyAttack : MonoBehaviour {
         PlayerHit player = GameObject.Find("Player").GetComponent<PlayerHit>();
 
         if (other.CompareTag("Player")) {
-            Debug.Log("bump");
             player.TakeDamage(_damage);
         }
     }

@@ -1,5 +1,5 @@
 /*
-*   Code from https://www.youtube.com/watch?v=6OT43pvUyfY
+*   Code by Brackeys
 */
 
 using UnityEngine.Audio;
@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
 
     void Awake () {
+        
         // To prevent the existence of two audio managers
         if (instance == null) {
             instance = this;
@@ -33,9 +34,12 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+
     void Start () {
+
         Play("Theme");
     }
+
 
     public void Play (string name) {
 

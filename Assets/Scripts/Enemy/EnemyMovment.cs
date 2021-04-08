@@ -1,5 +1,5 @@
 /*
-*   Code from BurgZerg Arcade
+*   Code inspired by BurgZerg Arcade
 */
 
 using System.Collections;
@@ -10,7 +10,7 @@ public class EnemyMovment : MonoBehaviour
 {
     [SerializeField] Transform target;
 
-    [SerializeField] float movmentSpeed = 8f;
+    [SerializeField] float movmentSpeed = 9f;
 
     [SerializeField] float rotationalDamp = 0.5f;
 
@@ -30,12 +30,9 @@ public class EnemyMovment : MonoBehaviour
     private void Update () {
 
         if (!_EnemyHit.wasHit) {
-
             Pathfinding();
             Move();
-
         } else {
-            Debug.Log("hit");
             transform.position = this.transform.position;
             Vector3 lookVector = target.transform.position - transform.position;
             Quaternion lookAtPlayer = Quaternion.LookRotation(lookVector);
@@ -75,7 +72,6 @@ public class EnemyMovment : MonoBehaviour
 
         // Control for left and right movment
         if (Physics.Raycast(left, transform.forward, out hit, detectionDistance)) {
-
             raycastOffset += Vector3.right;
         } else if (Physics.Raycast(right, transform.forward, out hit, detectionDistance)) {
 
@@ -84,16 +80,14 @@ public class EnemyMovment : MonoBehaviour
         
         // Control for up and down movment
         if (Physics.Raycast(up, transform.forward, out hit, detectionDistance)) {
-
             raycastOffset -= Vector3.up;
         } else if (Physics.Raycast(down, transform.forward, out hit, detectionDistance)) {
 
             raycastOffset += Vector3.up;
         }
 
-        // Move to target
+        // If ray collided with something
         if (raycastOffset != Vector3.zero) {
-
             transform.Rotate(raycastOffset * 1f * Time.deltaTime);
         } else {
             Turn();

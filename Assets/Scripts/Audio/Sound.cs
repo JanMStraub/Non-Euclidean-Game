@@ -1,5 +1,5 @@
 /*
-*   Code from https://www.youtube.com/watch?v=6OT43pvUyfY
+*   Code by Brackeys
 */
 
 using UnityEngine.Audio;

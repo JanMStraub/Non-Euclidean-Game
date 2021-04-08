@@ -13,15 +13,11 @@ public class PauseMenu : MonoBehaviour {
     void Update () {
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-
             Cursor.lockState = CursorLockMode.Confined;
-            Debug.Log("Ecs");
             if (_GameIsPaused) {
-
                 Resume ();
             } else {
                 Pause ();
-                Debug.Log("pause");
             }
         }
     }
@@ -48,5 +44,4 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 0f; // Game is paused
         _GameIsPaused = true;
     }
-
 }

@@ -16,6 +16,7 @@ public class EnemyHit : MonoBehaviour {
     }
 
     
+    // If enemy was hit it stays at its position for the duration of the cooldown
     public void stunned () {
 
         wasHit = true;

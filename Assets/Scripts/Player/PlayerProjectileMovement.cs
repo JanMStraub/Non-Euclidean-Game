@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerProjectileMovement : MonoBehaviour {
+
     private float _speed = 1f;
+
     private GameObject _enemy;
+
     private Vector3 _target;
 
+
     void Start () {
+
         _enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
@@ -34,7 +39,6 @@ public class PlayerProjectileMovement : MonoBehaviour {
     void OnTriggerEnter (Collider other) {
 
         if (other.CompareTag("Enemy")) {
-            
             Destroy(gameObject);
         }
     }

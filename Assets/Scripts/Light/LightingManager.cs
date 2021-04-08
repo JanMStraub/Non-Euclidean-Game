@@ -1,5 +1,5 @@
 /*
-Code from https://github.com/Glynn-Taylor
+Code by https://github.com/Glynn-Taylor
 */
 
 using UnityEngine;
@@ -22,9 +22,8 @@ public class LightingManager : MonoBehaviour {
             return;
 
         if (Application.isPlaying) {
-
             _TimeOfDay += Time.deltaTime;
-            _TimeOfDay %= 96; //Modulus to ensure always between 0-24
+            _TimeOfDay %= 96; // day has 96 hours
             UpdateLighting(_TimeOfDay / 96f);
         } else {
             UpdateLighting(_TimeOfDay / 96f);
@@ -56,15 +55,12 @@ public class LightingManager : MonoBehaviour {
 
         //Search for lighting tab sun
         if (RenderSettings.sun != null) {
-
             _DirectionalLight = RenderSettings.sun;
         } else { //Search scene for light that fits criteria (directional)
             Light[] lights = GameObject.FindObjectsOfType<Light>();
-
+            
             foreach (Light light in lights) {
-
                 if (light.type == LightType.Directional) {
-                    
                     _DirectionalLight = light;
                     return;
                 }

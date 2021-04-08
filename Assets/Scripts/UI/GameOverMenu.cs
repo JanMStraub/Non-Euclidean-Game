@@ -9,11 +9,10 @@ public class GameOverMenu : MonoBehaviour {
 
     public bool PlayerIsAlive = true;
 
-    // Update is called once per frame
-    void Update () {
+
+    void Update () { // True if enemy killed the player
 
         if (!PlayerIsAlive) {
-
             Cursor.lockState = CursorLockMode.Confined;
             Pause();
         }
@@ -28,7 +27,6 @@ public class GameOverMenu : MonoBehaviour {
 
 
     void Pause () {
-
 
         GameOverScreen.SetActive(true);
         Time.timeScale = 0f; // Game is paused

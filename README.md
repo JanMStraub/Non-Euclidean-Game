@@ -9,6 +9,7 @@ We built a game with non-euclidean objects like the klein bottle or the boy's su
 * [Technologies](#technologies)
 * [TODO](#todo)
 * [Project Status](#project-status)
+* [Screenhots from the game](#screenhots-from-the-game)
 * [Inspiration](#inspiration)
 * [Resources](#resources)
 * [Presentation Resources](#presentation-resources)
@@ -93,6 +94,15 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 - - - - - 
 ### 27.03.2021
 - created menu
+- found tutorial for Klein bottle
+
+![Klein bottle tutorial](git_res/construction_of_klein_bottle.jpg)
+- - - - -
+
+### 29.03.2021
+- found Klein bottle problem
+
+![Klein bottle problem](git_res/klein_bottle_problem.png)
 - - - - -
 
 ### 01.04.2021
@@ -103,6 +113,31 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 - added some low poly assets from the unity store
 - started building final version of each level
 
+![Functional Klein bottle](git_res/finished_klein_bottle.png)
+![Functional Klein bottle 2](git_res/klein_bottle.png)
+- - - - -
+
+### 05.04.2021
+- Implemented Enemy movment
+
+![Enemy movment test](git_res/enemy_movment.gif)
+![Enemy movment on bottle](git_res/movment_on_bottle.gif)
+- - - - -
+
+### 08.04.2021
+- Game essentially finished
+- - - - -
+
+## Screenshots from the game
+
+![NEG1](git_res/NEG1.jpg)
+![NEG2](git_res/NEG2.jpg)
+![NEG3](git_res/NEG3.jpg)
+![NEG4](git_res/NEG4.jpg)
+![NEG5](git_res/NEG5.jpg)
+![NEG6](git_res/NEG6.jpg)
+![NEG7](git_res/NEG7.jpg)
+![NEG8](git_res/NEG8.jpg)
 
 ## Inspiration
 

@@ -10,7 +10,7 @@ public class EnemyMovment : MonoBehaviour
 {
     [SerializeField] Transform target;
 
-    [SerializeField] float movmentSpeed = 9f;
+    [SerializeField] float movmentSpeed = 10f;
 
     [SerializeField] float rotationalDamp = 0.5f;
 

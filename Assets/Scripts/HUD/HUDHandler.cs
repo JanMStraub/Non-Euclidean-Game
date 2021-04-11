@@ -31,7 +31,7 @@ public class HUDHandler : MonoBehaviour {
 
         KeyText.text = "Keys : " + keys;
         HealthText.text = "Health : " + health;
-        AmmoText.text = "Ammo : " + ammo;
+        AmmoText.text = "Mana : " + ammo;
 
         if (keys == 5) {
             _ES.allKeys = true;

@@ -102,7 +102,7 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 ### 29.03.2021
 - found Klein bottle problem
 
-![Klein bottle problem](git_res/klein_bottle_problem.png)
+![Klein bottle problem](git_res/klein_bottle_problem.jpg)
 - - - - -
 
 ### 01.04.2021
@@ -113,8 +113,8 @@ Basic mechanics for walking on the mesh of the donut is implemented. But there a
 - added some low poly assets from the unity store
 - started building final version of each level
 
-![Functional Klein bottle](git_res/finished_klein_bottle.png)
-![Functional Klein bottle 2](git_res/klein_bottle.png)
+![Functional Klein bottle](git_res/finished_klein_bottle.jpg)
+![Functional Klein bottle 2](git_res/klein_bottle.jpg)
 - - - - -
 
 ### 05.04.2021

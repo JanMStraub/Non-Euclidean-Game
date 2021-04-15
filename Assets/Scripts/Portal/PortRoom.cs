@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PortRoom : MonoBehaviour
 {
-    public bool[] trigger = new bool[10];
+    public bool[] trigger;
 
     Transform exit;
     Transform entrence;
@@ -13,10 +13,13 @@ public class PortRoom : MonoBehaviour
 
     Vector3 offset;
 
+    int planeNumber = 18;
+
     // Start is called before the first frame update
     void Start()
     {
-        trigger = new bool[10];
+        trigger = new bool[18];
+
         playerTransform = GameObject.Find("Player").transform;
 
         print(playerTransform);
@@ -26,26 +29,26 @@ public class PortRoom : MonoBehaviour
     void Update()
     {
         //print(Vector3.Angle(-GameObject.Find("Plane0").transform.up, playerTransform.forward));
-        for (int i = 0; i<8; i++)
+        for (int i = 0; i<planeNumber-2; i++)
         {
             if(trigger[i] == true)
             {
                 entrence = GameObject.Find("Plane" + i).transform;
-                if(i%2 == 0)
+                if(i%2 == 1)
                 {
                     offset = playerTransform.position - entrence.position;
 
                 }
                 else
                 {
-                    offset = playerTransform.position - entrence.position - transform.up;
+                    offset = playerTransform.position - entrence.position + transform.up;
                 }
                 FindExit(i);
                 trigger[i] = false;
                 Teleport();
             }
         }
-        for (int j=8; j<10; j++)
+        for (int j=planeNumber-2; j<planeNumber; j++)
         {
             if(trigger[j] == true)
             {
@@ -60,7 +63,7 @@ public class PortRoom : MonoBehaviour
                 {
                     offset = (playerTransform.position - entrence.position) * 1.5f;
                 }
-                string exitName = "Plane" + (((j + 1) % 2)+8);
+                string exitName = "Plane" + (((j + 1) % 2) + planeNumber - 2);
                 print(exitName);
                 exit = GameObject.Find(exitName).transform;
 
@@ -77,7 +80,7 @@ public class PortRoom : MonoBehaviour
     {
         string exitName = "";
         
-        exitName = "Plane" + ((entrenceNumber + 4) % 8);
+        exitName = "Plane" + ((entrenceNumber + ((planeNumber-2) / 2)) % (planeNumber-2));
 
         print(entrence);
         print(exit);

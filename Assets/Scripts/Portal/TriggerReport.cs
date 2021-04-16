@@ -13,6 +13,7 @@ public class TriggerReport : MonoBehaviour
         
         portRoom = GameObject.Find("PortalRoomEven").GetComponent<PortRoom>();
 
+
         print(id);
         print(portRoom.trigger[id]);
 

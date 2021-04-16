@@ -41,7 +41,7 @@ public class PortRoom : MonoBehaviour
                 }
                 else
                 {
-                    offset = playerTransform.position - entrence.position + transform.up;
+                    offset = playerTransform.position - entrence.position - transform.up;
                 }
                 FindExit(i);
                 trigger[i] = false;

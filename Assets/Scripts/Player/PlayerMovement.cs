@@ -15,6 +15,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private CharacterController _controller;
 
+    private GameObject _groundBottle;
+
+    private GameObject _groundDonut;
+
+    private Transform _cameraTransform;
+
+    private bool _noclip;
+
     private float _currentG = 0;
 
     private Vector3 _graviDir;
@@ -26,13 +34,24 @@ public class PlayerMovement : MonoBehaviour {
 
         _controller = gameObject.GetComponent<CharacterController>();
         _flashlight = GameObject.Find("Flashlight");
+        _cameraTransform = GameObject.Find("PlayerCamera").transform;
+        _groundBottle = GameObject.Find("working_klein_bottle");
+        _groundDonut = GameObject.Find("default");
     }
 
 
-    void FixedUpdate () {   
+    void FixedUpdate () {
 
-        if (Time.timeScale == 1) {
-            _controller.Move(Movement() + ApplyGravity());
+        if (!_noclip)
+        {
+            if (Time.timeScale == 1)
+            {
+                _controller.Move(Movement() + ApplyGravity());
+            }
+        }
+        else
+        {
+            _controller.Move(Movement());
         }
     }
 
@@ -40,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
 
         flashlightControll();
-        FlipOver();
+        ControllKeys();
     }
 
 
@@ -61,7 +80,16 @@ public class PlayerMovement : MonoBehaviour {
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = (transform.right * x + transform.forward * z) * movement_speed * Time.deltaTime;
+        Vector3 move;
+
+        if (!_noclip)
+        {
+            move = (transform.right * x + transform.forward * z) * movement_speed * Time.deltaTime;
+        }
+        else
+        {
+            move = (transform.right * x + _cameraTransform.forward * z) * movement_speed * Time.deltaTime;
+        }
 
         return move;
     }
@@ -98,11 +126,29 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    void FlipOver () {
+    void ControllKeys () {
 
         if (Input.GetKeyDown("e")) {
             transform.position += 2 * (-transform.up);
             transform.up = -transform.up;
+        }
+
+        if (Input.GetKeyDown("n"))
+        {
+            if (_noclip)
+            {
+                _noclip = false;
+                _groundBottle.GetComponent<Collider>().enabled = true;
+                GameObject.Find("Wc").GetComponent<Collider>().enabled = true;
+                _groundDonut.GetComponent<Collider>().enabled = true;
+            }
+            else
+            {
+                _noclip = true;
+                _groundBottle.GetComponent<Collider>().enabled = false;
+                GameObject.Find("Wc").GetComponent<Collider>().enabled = false;
+                _groundDonut.GetComponent<Collider>().enabled = false;
+            }
         }
     }
 }

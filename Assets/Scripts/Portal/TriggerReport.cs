@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class TriggerReport : MonoBehaviour
 {
-    PortRoom portRoom;
     public int id;
+
+    private PortRoom _portRoom;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        portRoom = GameObject.Find("PortalRoomEven").GetComponent<PortRoom>();
-
+        _portRoom = GameObject.Find("PortalRoomEven").GetComponent<PortRoom>();
 
         print(id);
-        print(portRoom.trigger[id]);
+        print(_portRoom.trigger[id]);
 
     }
 
@@ -27,7 +26,7 @@ public class TriggerReport : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        portRoom.trigger[id] = true;
+        _portRoom.trigger[id] = true;
     }
 
 }

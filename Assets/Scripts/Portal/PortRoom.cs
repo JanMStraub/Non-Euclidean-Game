@@ -4,65 +4,63 @@ using UnityEngine;
 
 public class PortRoom : MonoBehaviour
 {
-    public bool[] trigger = new bool[10];
+    public bool[] trigger;
 
-    Transform exit;
-    Transform entrence;
+    private Transform _exit;
 
-    Transform playerTransform;
+    private Transform _entrence;
 
-    Vector3 offset;
+    private Transform _playerTransform;
+
+    private Vector3 _offset;
+
+    private int _planeNumber = 18;
 
     // Start is called before the first frame update
     void Start()
     {
-        trigger = new bool[10];
-        playerTransform = GameObject.Find("Player").transform;
-
-        print(playerTransform);
+        trigger = new bool[18];
+        _playerTransform = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         //print(Vector3.Angle(-GameObject.Find("Plane0").transform.up, playerTransform.forward));
-        for (int i = 0; i<8; i++)
+        for (int i = 0; i<_planeNumber-2; i++)
         {
             if(trigger[i] == true)
             {
-                entrence = GameObject.Find("Plane" + i).transform;
-                if(i%2 == 0)
+                _entrence = GameObject.Find("Plane" + i).transform;
+                if(i%2 == 1)
                 {
-                    offset = playerTransform.position - entrence.position;
-
+                    _offset = _playerTransform.position - _entrence.position;
                 }
                 else
                 {
-                    offset = playerTransform.position - entrence.position - transform.up;
+                    _offset = _playerTransform.position - _entrence.position - transform.up;
                 }
                 FindExit(i);
                 trigger[i] = false;
                 Teleport();
             }
         }
-        for (int j=8; j<10; j++)
+        for (int j=_planeNumber-2; j<_planeNumber; j++)
         {
             if(trigger[j] == true)
             {
-                entrence = GameObject.Find("Plane" + j).transform;
-                print(Vector3.Angle(playerTransform.up, entrence.position - playerTransform.position));
+                _entrence = GameObject.Find("Plane" + j).transform;
 
-                if (Vector3.Angle(playerTransform.up, entrence.position-playerTransform.position) < 90)
+                if (Vector3.Angle(_playerTransform.up, _entrence.position-_playerTransform.position) < 90)
                 {
-                    offset = Vector3.zero;
+                    _offset = Vector3.zero;
                 }
                 else
                 {
-                    offset = (playerTransform.position - entrence.position) * 1.5f;
+                    _offset = (_playerTransform.position - _entrence.position) * 1.5f;
                 }
-                string exitName = "Plane" + (((j + 1) % 2)+8);
-                print(exitName);
-                exit = GameObject.Find(exitName).transform;
+                string exitName = "Plane" + (((j + 1) % 2) + _planeNumber - 2);
+                _exit = GameObject.Find(exitName).transform;
 
                 //offset = (exit.transform.position - entrence.transform.position) * 0.25f;
 
@@ -77,22 +75,19 @@ public class PortRoom : MonoBehaviour
     {
         string exitName = "";
         
-        exitName = "Plane" + ((entrenceNumber + 4) % 8);
+        exitName = "Plane" + ((entrenceNumber + ((_planeNumber-2) / 2)) % (_planeNumber-2));
 
-        print(entrence);
-        print(exit);
-
-        exit = GameObject.Find(exitName).transform;
+        _exit = GameObject.Find(exitName).transform;
     }
 
 
     void Teleport()
     {
-        playerTransform.position = exit.position + offset + playerTransform.forward;
+        _playerTransform.position = _exit.position + _offset + _playerTransform.forward;
     }
 
     void Teleport1()
     {
-        playerTransform.position = exit.position + offset + exit.up;
+        _playerTransform.position = _exit.position + _offset + _exit.up;
     }
 }

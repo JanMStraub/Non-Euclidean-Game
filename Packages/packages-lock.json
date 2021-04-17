@@ -63,7 +63,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
+<<<<<<< HEAD
       "version": "10.4.0",
+=======
+      "version": "10.3.2",
+>>>>>>> 1dadf0d8a991b71c75dc84f41a8a48f18329dcf4
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -97,6 +101,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
+<<<<<<< HEAD
       "version": "10.4.0",
       "depth": 1,
       "source": "registry",
@@ -105,6 +110,32 @@
         "com.unity.searcher": "4.3.1"
       },
       "url": "https://packages.unity.com"
+=======
+      "version": "10.3.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.3.2",
+        "com.unity.searcher": "4.3.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot": {
+      "version": "0.1.19-preview",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "0.1.14-preview",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "0.1.18-preview"
+      },
+      "url": "https://packages.unity.com"
+>>>>>>> 1dadf0d8a991b71c75dc84f41a8a48f18329dcf4
     },
     "com.unity.test-framework": {
       "version": "1.1.24",
@@ -135,6 +166,16 @@
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "0.1.19-preview",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "0.1.19-preview",
+        "com.unity.sysroot.linux-x86_64": "0.1.14-preview"
       },
       "url": "https://packages.unity.com"
     },

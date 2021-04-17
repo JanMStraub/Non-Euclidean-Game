@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
         ControllKeys();
     }
 
-
+    //toggle flashlight on right mousebutton
     private void flashlightControll () {
 
         if (Input.GetKeyDown(KeyCode.Mouse1)) {
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-
+    //move player
     Vector3 Movement () {
 
         float x = Input.GetAxisRaw("Horizontal");
@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
+    //move down if not on ground
     Vector3 ApplyGravity () {
 
         if (Input.GetButtonDown("Jump") && OnGround()) {
@@ -106,6 +107,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
+    //check if player is on ground
     bool OnGround () {
 
         RaycastHit hit;
@@ -118,7 +120,7 @@ public class PlayerMovement : MonoBehaviour {
         return false;
     }
 
-
+    //special movement: turn through ground and activate noclip
     void ControllKeys () {
 
         if (Input.GetKeyDown("e")) {

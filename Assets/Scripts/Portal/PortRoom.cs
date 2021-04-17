@@ -22,7 +22,7 @@ public class PortRoom : MonoBehaviour {
         _playerTransform = GameObject.Find("Player").transform;
     }
 
-
+    //check if a portal gets entered
     void Update () {
 
         for (int i = 0; i<_planeNumber-2; i++) {
@@ -60,7 +60,7 @@ public class PortRoom : MonoBehaviour {
         }
     }
 
-
+    //find opposite plane as Gameobject
     void FindExit (int entrenceNumber) {
         
         string exitName = "Plane" + ((entrenceNumber + ((_planeNumber-2) / 2)) % (_planeNumber-2));
@@ -68,7 +68,7 @@ public class PortRoom : MonoBehaviour {
         _exit = GameObject.Find(exitName).transform;
     }
 
-
+    //move PlayerTransform to exit
     void Teleport () {
         _playerTransform.position = _exit.position + _offset + _playerTransform.forward;
     }

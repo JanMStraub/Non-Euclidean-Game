@@ -23,7 +23,7 @@ public class PlayerProjectileMovement : MonoBehaviour {
         transform.localRotation = GroundNormal();
     }
 
-
+    // return normal direction form ground
     Quaternion GroundNormal () {
 
         RaycastHit hit;

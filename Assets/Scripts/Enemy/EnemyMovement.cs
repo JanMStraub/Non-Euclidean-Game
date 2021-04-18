@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour 
-{
+public class EnemyMovement : MonoBehaviour {
     public Transform target;
-
+    
     private float _movmentSpeed = 10f;
-
+    
     private float _rotationalDamp = 0.5f;
 
     private EnemyHit _EnemyHit;

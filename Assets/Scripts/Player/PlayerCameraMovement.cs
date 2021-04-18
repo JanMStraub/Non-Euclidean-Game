@@ -21,7 +21,7 @@ public class PlayerCameraMovement : MonoBehaviour {
     }
 
     
-    //return direction to mouse movement
+    // Return direction to mouse movement
     Quaternion TurnPlayer () {
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -30,7 +30,7 @@ public class PlayerCameraMovement : MonoBehaviour {
         return Quaternion.Euler(0f, mouseX, 0f);
     }
     
-    //turn Camera up and down to mouse movement
+    // Turn Camera up and down to mouse movement
     void TiltCamera () {
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -40,7 +40,7 @@ public class PlayerCameraMovement : MonoBehaviour {
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
     }
 
-    //return direction normal to ground
+    // Return direction normal to ground
     Quaternion GroundNormal () {
         
         RaycastHit hit;

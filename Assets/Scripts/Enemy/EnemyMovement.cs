@@ -1,18 +1,14 @@
-/*
-*   Code inspired by BurgZerg Arcade
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour 
 {
-    [SerializeField] Transform target;
+    public Transform target;
 
-    [SerializeField] float movmentSpeed = 10f;
+    private float _movmentSpeed = 10f;
 
-    [SerializeField] float rotationalDamp = 0.5f;
+    private float _rotationalDamp = 0.5f;
 
     private EnemyHit _EnemyHit;
 
@@ -42,12 +38,12 @@ public class EnemyMovement : MonoBehaviour
 
         Vector3 pos = target.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(pos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _rotationalDamp * Time.deltaTime);
     }
 
 
     private void Move () {
 
-        transform.position += transform.forward * movmentSpeed * Time.deltaTime;
+        transform.position += transform.forward * _movmentSpeed * Time.deltaTime;
     }
 }

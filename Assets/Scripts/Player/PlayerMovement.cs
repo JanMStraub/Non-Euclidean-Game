@@ -5,12 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float movement_speed = 10f;
-
-    public float gravity = 0.1f;
-
-    public float jumpHeight = 0.05f;
-
     public LayerMask mask;
 
     private CharacterController _controller;
@@ -28,6 +22,12 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 _graviDir;
 
     private GameObject _flashlight;
+
+    private float _movement_speed = 10f;
+
+    private float _gravity = 0.1f;
+
+    private float _jumpHeight = 0.05f;
 
 
     void Start() {
@@ -79,9 +79,9 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 move;
 
         if (!_noclip) {
-            move = (transform.right * x + transform.forward * z) * movement_speed * Time.deltaTime;
+            move = (transform.right * x + transform.forward * z) * _movement_speed * Time.deltaTime;
         } else {
-            move = (transform.right * x + _cameraTransform.forward * z) * movement_speed * Time.deltaTime;
+            move = (transform.right * x + _cameraTransform.forward * z) * _movement_speed * Time.deltaTime;
         }
 
         return move;
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 ApplyGravity () {
 
         if (Input.GetButtonDown("Jump") && OnGround()) {
-            _currentG = -jumpHeight;
+            _currentG = -_jumpHeight;
         }
 
         if (OnGround()) {
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        _currentG += gravity * Time.deltaTime;
+        _currentG += _gravity * Time.deltaTime;
 
         return -transform.up * _currentG;
     }

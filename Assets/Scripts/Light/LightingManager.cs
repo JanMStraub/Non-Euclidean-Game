@@ -1,5 +1,5 @@
 /*
-Code by https://github.com/Glynn-Taylor
+Code from https://github.com/Glynn-Taylor
 */
 
 using UnityEngine;

@@ -14,10 +14,6 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] float rotationalDamp = 0.5f;
 
-    [SerializeField] float rayCastOffset = 0.1f;
-
-    [SerializeField] float detectionDistance = 10f;
-
     private EnemyHit _EnemyHit;
 
 
@@ -30,9 +26,10 @@ public class EnemyMovement : MonoBehaviour
     private void Update () {
 
         if (!_EnemyHit.wasHit) {
-            Pathfinding();
             Move();
+            Turn();
         } else {
+            // Stay in position and turn to player
             transform.position = this.transform.position;
             Vector3 lookVector = target.transform.position - transform.position;
             Quaternion lookAtPlayer = Quaternion.LookRotation(lookVector);
@@ -52,45 +49,5 @@ public class EnemyMovement : MonoBehaviour
     private void Move () {
 
         transform.position += transform.forward * movmentSpeed * Time.deltaTime;
-    }
-
-
-    private void Pathfinding() {
-
-        RaycastHit hit;
-        Vector3 raycastOffset = Vector3.zero;
-
-        Vector3 left = transform.position - transform.right * rayCastOffset;
-        Vector3 right = transform.position + transform.right * rayCastOffset;
-        Vector3 up = transform.position + transform.up * rayCastOffset;
-        Vector3 down = transform.position - transform.up * rayCastOffset;
-
-        Debug.DrawRay(left, transform.forward * detectionDistance, Color.red);
-        Debug.DrawRay(right, transform.forward * detectionDistance, Color.green);
-        Debug.DrawRay(up, transform.forward * detectionDistance, Color.blue);
-        Debug.DrawRay(down, transform.forward * detectionDistance, Color.yellow);
-
-        // Control for left and right movment
-        if (Physics.Raycast(left, transform.forward, out hit, detectionDistance)) {
-            raycastOffset += Vector3.right;
-        } else if (Physics.Raycast(right, transform.forward, out hit, detectionDistance)) {
-
-            raycastOffset -= Vector3.right;
-        } 
-        
-        // Control for up and down movment
-        if (Physics.Raycast(up, transform.forward, out hit, detectionDistance)) {
-            raycastOffset -= Vector3.up;
-        } else if (Physics.Raycast(down, transform.forward, out hit, detectionDistance)) {
-
-            raycastOffset += Vector3.up;
-        }
-
-        // If ray collided with something
-        if (raycastOffset != Vector3.zero) {
-            transform.Rotate(raycastOffset * 1f * Time.deltaTime);
-        } else {
-            Turn();
-        }
     }
 }
